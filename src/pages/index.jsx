@@ -1,10 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
+import Layout from "../components/layout/Layout"
 
 const IndexPage = () => (
-  <>
+  <Layout>
     <h1>MDX Example</h1>
-    <p>Overview of MDX pages:</p>
+    <p className={'text-red-500'}>Overview of MDX pages:</p>
     <ul>
       <li>
         <Link to="/chart-info/">
@@ -27,7 +28,7 @@ const IndexPage = () => (
         </Link>
       </li>
     </ul>
-  </>
+  </Layout>
 )
 
 export default IndexPage

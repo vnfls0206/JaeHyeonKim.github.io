@@ -3,19 +3,10 @@ import { Link } from "gatsby"
 
 export const Header = ({ siteTitle }) => (
   <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
+    className={'bg-[#464646]'}
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+    <div className={'px-0 text-[25px] font-[600] font-sans'}>
+      <div style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -25,7 +16,7 @@ export const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
-      </h1>
+      </div>
     </div>
   </header>
 )

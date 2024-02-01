@@ -8,6 +8,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
  * @type {import('gatsby').GatsbyConfig}
  */
 const config = {
+  pathPrefix: "/gitBlog", // GitHub Pages의 레포지토리 이름에 맞게 설정
+
   siteMetadata: {
     title: `Using MDX example`,
     description: `Kick off your next, great Gatsby project with MDX.`,
