@@ -36,7 +36,10 @@ export interface IPageData {
   id?: string,
   frontmatter?: IMdxData
 }
+export interface ILayout {
+  children?: React.ReactNode;
 
+}
 
 const Layout = ({ children }: any) => {
 
@@ -65,8 +68,8 @@ const Layout = ({ children }: any) => {
 
 
 
-  const pageData: IPageData = children.props.pageContext
-  console.log(pageData.frontmatter?.categories)
+  // const pageData: IPageData = children.props.pageContext
+
 
   const mdx = useSiteMetadata()
 
@@ -91,7 +94,7 @@ const Layout = ({ children }: any) => {
     <div className={'flex'}>
 
       <MenuLayout
-        currentPage={pageData}
+        // currentPage={pageData}
         menu={query.allMdx.group}
         // menuOnClickHandler={}
       />

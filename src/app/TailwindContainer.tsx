@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import { StyledEngineProvider } from "@mui/material/styles"
+import Layout from "../components/layout/Layout"
 
 export interface IThemeContext {
   theme: string,
@@ -30,7 +31,11 @@ const TailwindContainer = (
 
   useEffect(() => {
     rawSetTheme(theme)
-  }, [theme])
+  }, [theme]);
+
+  // const page  = useContext(pageContext);
+  //
+  // console.log("page " + page)
 
 
   return (

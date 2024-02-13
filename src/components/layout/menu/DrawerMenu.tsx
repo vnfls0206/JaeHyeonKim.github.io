@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { Icon, IconButton } from "@mui/material"
 import { CSSObject, styled, Theme, useTheme } from "@mui/material/styles"
 import MuiDrawer from "@mui/material/Drawer"
@@ -13,6 +13,7 @@ import Path from "../../routing/path"
 import { navigate } from "gatsby"
 import { IMdxData } from "components/layout/Layout"
 import { Header } from "../../../components/header"
+import { pageContext } from "../../../app/AppContainer"
 
 export interface IDrawerProps {
   //children?: React.ReactNode,
@@ -23,7 +24,6 @@ export interface IDrawerProps {
 
   menu: IMenuItem[],
   menuOnClickHandler: Function,
-  currentPage: IMdxData,
 
 
 }
@@ -80,7 +80,6 @@ export default function DrawerMenu(
   {
     drawerWidth,
     open,
-    currentPage,
 
 
     handleDrawerClose,
@@ -108,7 +107,10 @@ export default function DrawerMenu(
    * saveSubSelected : depth2 중 선택된 메뉴
    * sideOpen : mini-menu sidebar
    */
-  const [selected, setSelected] = useState(currentPage.categories?.at(-1) || "")
+
+  const pageData = useContext(pageContext);
+
+  const [selected, setSelected] = useState(pageData?.categories?.at(-1) || "")
   // const [subSelected, setSubSelected] = useState(breadCrumble[1]?.key || "")
 
   // const [sideKey, setSideKey] = useState(breadCrumble[0]?.key || "")

@@ -17,7 +17,7 @@ export interface IMenuItem {
 export interface IMenuLayoutProps {
   //children?: React.ReactNode,
   menu: IMenuItem[],
-  currentPage: IMdxData,
+  // currentPage: IMdxData,
 }
 
 const drawerWidth = 250
@@ -25,7 +25,6 @@ const drawerWidth = 250
 const MenuLayout = (
   {
     menu,
-    currentPage
   }: IMenuLayoutProps
 ) => {
 
@@ -37,15 +36,15 @@ const MenuLayout = (
 
   console.log(menu);
 
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(window.innerWidth > 1440)
 
 
 
-  useEffectOnce(() => {
-    if (window.innerWidth <= 1440) {
-      handleDrawerClose()
-    }
-  })
+  // useEffectOnce(() => {
+  //   if (window.innerWidth <= 1440) {
+  //     handleDrawerClose()
+  //   }
+  // })
 
 
 
@@ -88,7 +87,6 @@ const MenuLayout = (
       <DrawerMenu
           drawerWidth={drawerWidth}
           menu={menu}
-          currentPage={currentPage}
           open={open}
           menuOnClickHandler={()=> console.log('click')}
           sideOpen={sideOpen}
