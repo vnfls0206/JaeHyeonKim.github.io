@@ -1,0 +1,41 @@
+@import "~fontsource-noto-sans-kr";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*h1 {*/
+/*    @apply text-3xl font-bold text-gray-900;*/
+/*}*/
+
+/*h2 {*/
+/*    @apply text-2xl font-semibold text-gray-800;*/
+/*}*/
+
+/*h3 {*/
+/*    @apply text-xl font-semibold text-gray-800 mt-4 mb-2;*/
+/*}*/
+
+/*p {*/
+/*    @apply text-base leading-relaxed text-gray-700;*/
+/*}*/
+
+/*ol {*/
+/*    @apply list-decimal pl-6;*/
+/*}*/
+
+/*li {*/
+/*    @apply mb-2;*/
+/*}*/
+
+/*pre {*/
+/*    @apply bg-gray-100 p-4 rounded-lg overflow-auto text-sm;*/
+/*}*/
+
+/*code {*/
+/*    @apply bg-gray-500 rounded p-1 text-sm;*/
+/*}*/
+
+/*strong {*/
+/*    @apply font-semibold text-gray-900;*/
+/*}*/
