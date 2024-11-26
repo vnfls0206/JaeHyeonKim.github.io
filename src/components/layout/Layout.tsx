@@ -93,8 +93,6 @@ const Layout = ({ children }: any) => {
         navigate(`${link}`, {})
     }
 
-    console.log(query)
-
     return (
         <div className={"flex"}>
 
@@ -111,20 +109,20 @@ const Layout = ({ children }: any) => {
             >
                 {/*<DrawerHeader className={'min-h-[70px]'}/>*/}
 
-                <Box className={"bg-[#f0f0f0]"} component="main"
+                <Box className={"bg-[#fafbfd]"} component="main"
                      sx={{ width: 1, height: "100vh", position: "relative", overflow: "auto" }}>
 
                     <main className={'px-3'}>{children}</main>
 
-                    <div className={"flex flex-col gap-y-2"}>
-                        {
-                            linkArray.map(value =>
-                                <button key={value.list.slug} onClick={onNav.bind(this, value.list.slug)}>
-                                    {value.list.slug}
-                                </button>
-                            )
-                        }
-                    </div>
+                    {/*<div className={"flex flex-col gap-y-2"}>*/}
+                    {/*    {*/}
+                    {/*        linkArray.map(value =>*/}
+                    {/*            <button key={value.list.slug} onClick={onNav.bind(this, value.list.slug)}>*/}
+                    {/*                {value.list.slug}*/}
+                    {/*            </button>*/}
+                    {/*        )*/}
+                    {/*    }*/}
+                    {/*</div>*/}
                 </Box>
 
                 <footer>

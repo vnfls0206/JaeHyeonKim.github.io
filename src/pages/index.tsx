@@ -81,7 +81,7 @@ const IndexPage = () => {
                 {tabArray.map((item) => <Tab {...PostTabOption} key={item.fieldValue} value={item.fieldValue} label={item.fieldValue}
                                              icon={<TabIcon iconType={item.fieldValue}/>} />)}
             </Tabs>
-            <div className={"flex w-full p-2 gap-x-2"}>
+            <div className={"flex flex-wrap w-full p-2 gap-2"}>
                 {
                     linkArray.filter(value => tabFilter(value.menuName)).map(value =>
                         <PostCard

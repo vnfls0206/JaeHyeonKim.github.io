@@ -32,9 +32,9 @@
 /*    @apply bg-gray-100 p-4 rounded-lg overflow-auto text-sm;*/
 /*}*/
 
-/*code {*/
-/*    @apply bg-gray-500 rounded p-1 text-sm;*/
-/*}*/
+code {
+    @apply bg-red-200 rounded p-0.5 text-sm italic;
+}
 
 /*strong {*/
 /*    @apply font-semibold text-gray-900;*/

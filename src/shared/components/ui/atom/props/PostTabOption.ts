@@ -5,7 +5,7 @@ const PostTabsOption: TabOwnProps = {
 
 
     classes: {
-        root: "normal-case",
+        root: "normal-case font-600",
 
 
     },
