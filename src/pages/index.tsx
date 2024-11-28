@@ -11,8 +11,10 @@ import PostTabOption from "@/shared/components/ui/atom/props/PostTabOption"
 const IndexPage = () => {
 
     const [tab, setTab] = useState(PostIconType.All)
-
     //            filter: { frontmatter: {category: {eq: "React" } } }
+    const NO_IMAGE_STR = "/image/no-image.png";
+
+
     const query: IMdxQuery = useStaticQuery(graphql`
         query MyQuery {
             allMdx(
@@ -26,6 +28,7 @@ const IndexPage = () => {
                     date(formatString: "YYYY.MM.DD")
                     category
                     tag
+                    image
                   }
                 }
               }
@@ -41,7 +44,8 @@ const IndexPage = () => {
     const linkArray = useMemo(() => {
         return query.allMdx.edges.map(value => ({
             list: value.node.frontmatter,
-            menuName: value.node.frontmatter.category || ""
+            menuName: value.node.frontmatter.category || "",
+            image: value.node.frontmatter.image
 
         }))
 
@@ -81,12 +85,13 @@ const IndexPage = () => {
                 {tabArray.map((item) => <Tab {...PostTabOption} key={item.fieldValue} value={item.fieldValue} label={item.fieldValue}
                                              icon={<TabIcon iconType={item.fieldValue}/>} />)}
             </Tabs>
-            <div className={"flex flex-wrap w-full p-2 gap-2"}>
+            <div className={"flex flex-wrap w-full p-2 gap-3"}>
                 {
                     linkArray.filter(value => tabFilter(value.menuName)).map(value =>
                         <PostCard
                             title={value.list.title}
                             link={value.list.slug}
+                            image={value.list.image || NO_IMAGE_STR}
                         />
                     )
                 }

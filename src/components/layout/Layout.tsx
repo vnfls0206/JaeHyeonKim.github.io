@@ -15,7 +15,8 @@ export interface IMdxData {
     slug: string,
     date: string,
     category?: string,
-    tag?: Array<string>
+    tag?: Array<string>,
+    image?: string
 }
 
 export interface IMdxQuery {
@@ -73,7 +74,7 @@ const Layout = ({ children }: any) => {
     const linkArray = useMemo(() => {
         return query.allMdx.edges.map(value => ({
             list: value.node.frontmatter,
-            menuName: value.node.frontmatter.category || ""
+            menuName: value.node.frontmatter.category || "",
 
         }))
 

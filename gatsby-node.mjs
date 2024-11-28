@@ -131,24 +131,12 @@ export const createPages = async ({ graphql, actions, reporter }) => {
 
   posts.forEach(node => {
     // Don't create a page for src/pages/chart-info.mdx since this already gets created
-    if (node.frontmatter.slug !== `/chart-info`) {
-      if (node.frontmatter.slug === `/blog-1`) {
-        // For /blog-1 create a page without defining a contentFilePath and just using the layout defined in src/components/Layout.tsx
-        createPage({
-          path: node.frontmatter.slug,
-          component: node.internal.contentFilePath,
-          context: { id: node.id, title: node.frontmatter.title },
-        })
-      } else {
-        // For /blog-2 define a contentFilePath and thus have two layouts. The src/components/Layout.tsx and nested inside that the src/templates/posts.jsx
-        createPage({
-          path: node.frontmatter.slug,
-          component: `${path.resolve(
-            `./src/templates/posts.jsx`
-          )}?__contentFilePath=${node.internal.contentFilePath}`,
-          context: { id: node.id, title: node.frontmatter.title},
-        })
-      }
-    }
+    createPage({
+      path: node.frontmatter.slug,
+      component: `${path.resolve(
+        `./src/templates/posts.jsx`
+      )}?__contentFilePath=${node.internal.contentFilePath}`,
+      context: { id: node.id, title: node.frontmatter.title},
+    })
   })
 }
