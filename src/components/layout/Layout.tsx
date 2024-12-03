@@ -16,7 +16,8 @@ export interface IMdxData {
     date: string,
     category?: string,
     tag?: Array<string>,
-    image?: string
+    image?: string,
+    summary?: string
 }
 
 export interface IMdxQuery {

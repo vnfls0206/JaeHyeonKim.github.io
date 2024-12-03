@@ -29,6 +29,7 @@ const IndexPage = () => {
                     category
                     tag
                     image
+                    summary
                   }
                 }
               }
@@ -45,7 +46,10 @@ const IndexPage = () => {
         return query.allMdx.edges.map(value => ({
             list: value.node.frontmatter,
             menuName: value.node.frontmatter.category || "",
-            image: value.node.frontmatter.image
+            image: value.node.frontmatter.image,
+            date: value.node.frontmatter.date,
+            tag: value.node.frontmatter.tag,
+            summary: value.node.frontmatter.summary
 
         }))
 
@@ -85,13 +89,17 @@ const IndexPage = () => {
                 {tabArray.map((item) => <Tab {...PostTabOption} key={item.fieldValue} value={item.fieldValue} label={item.fieldValue}
                                              icon={<TabIcon iconType={item.fieldValue}/>} />)}
             </Tabs>
-            <div className={"flex flex-wrap w-full p-2 gap-3"}>
+            <div className={"flex flex-wrap w-full p-2 gap-6"}>
                 {
                     linkArray.filter(value => tabFilter(value.menuName)).map(value =>
                         <PostCard
                             title={value.list.title}
                             link={value.list.slug}
+                            date={value.date}
+                            tags={value.tag || []}
+
                             image={value.list.image || NO_IMAGE_STR}
+                            summary={value.summary}
                         />
                     )
                 }

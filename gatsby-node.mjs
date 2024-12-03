@@ -34,6 +34,12 @@ export const onCreateNode = ({ node, actions }) => {
       name: `slug`,
       value: `/${slugify(node.frontmatter.title)}`
     })
+
+    createNodeField({
+      node,
+      name: `summary`,
+      value: node.frontmatter.summary
+    })
   }
 }
 
